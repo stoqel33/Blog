@@ -1,7 +1,36 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+const path = require('path');
 
-// You can delete this file if you're not using it
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+  const gameTemplate = path.resolve('src/templates/gameTemplate/gameTemplate.js');
+  const result = await graphql(`
+    query {
+      fifaBlog {
+        games {
+          name
+          dateOfPublication
+          description
+          thumbnail
+          youtube
+          publisher {
+            name
+          }
+          slug
+        }
+      }
+    }
+  `);
+  console.log('-----------------------------------------------');
+
+  console.log(result.data.fifaBlog.games[0]);
+
+  result.data.fifaBlog.games.forEach((game) => {
+    createPage({
+      path: game.slug,
+      component: gameTemplate,
+      context: {
+        game,
+      },
+    });
+  });
+};

@@ -1,0 +1,67 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-grow: 1;
+  background-color: #b7b7a4;
+
+  .link {
+    margin: 15px 20px 10px;
+    padding: 5px 10px;
+    width: max-content;
+    color: black;
+    border: 1px solid black;
+    box-shadow: black 2px 2px 2px;
+    text-decoration: none;
+    text-align: left;
+  }
+
+  .innerWrapper {
+    position: relative;
+    margin: 20px;
+
+    img {
+      display: inline-block;
+      float: left;
+      margin: 0 15px 10px 0;
+      width: 150px;
+      box-shadow: black 3px 3px 3px;
+    }
+    p {
+      line-height: 130%;
+      text-align: justify;
+    }
+  }
+
+  .video {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+    margin: 20px 0;
+
+    iframe {
+      width: 280px;
+      height: 130px;
+
+      @media screen and (min-width: 375px) {
+        width: 300px;
+        height: 190px;
+      }
+      @media screen and (min-width: 425px) {
+        width: 350px;
+        height: 220px;
+      }
+
+      @media screen and (min-width: 540px) {
+        width: 450px;
+        height: 285px;
+      }
+
+      @media screen and (min-width: 768px) {
+        width: 560px;
+        height: 315px;
+      }
+    }
+  }
+}
