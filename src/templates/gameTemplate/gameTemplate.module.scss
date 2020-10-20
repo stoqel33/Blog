@@ -16,6 +16,10 @@
     text-align: left;
   }
 
+  .link:hover {
+    box-shadow: -2px -2px 5px black;
+  }
+
   .innerWrapper {
     position: relative;
     margin: 20px;
@@ -26,6 +30,13 @@
       margin: 0 15px 10px 0;
       width: 150px;
       box-shadow: black 3px 3px 3px;
+
+      @media screen and (min-width: 768px) {
+        width: 180px;
+      }
+      @media screen and (min-width: 1024px) {
+        width: 220px;
+      }
     }
     p {
       line-height: 130%;
